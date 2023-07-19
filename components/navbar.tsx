@@ -4,7 +4,7 @@ import { UserButton } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <div className="flex items-center p-4">
       <Button variant="ghost" size="icon" className="md:hidden">
@@ -16,5 +16,3 @@ function Navbar() {
     </div>
   );
 }
-
-export default Navbar;
