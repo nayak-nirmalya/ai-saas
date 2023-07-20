@@ -1,5 +1,11 @@
 import React from "react";
 
-export default function BotAvatar() {
-  return <div>BotAvatar</div>;
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+
+export function BotAvatar() {
+  return (
+    <Avatar className="h-8 w-8">
+      <AvatarImage className="p-1" src="/logo.png" />
+    </Avatar>
+  );
 }
