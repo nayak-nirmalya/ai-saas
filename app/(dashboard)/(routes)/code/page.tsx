@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageSquare } from "lucide-react";
+import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +21,7 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { formSchema } from "./constants";
 import { cn } from "@/lib/utils";
 
-export default function ConversationPage() {
+export default function CodePage() {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
@@ -42,7 +42,7 @@ export default function ConversationPage() {
       };
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post("/api/conversation", {
+      const response = await axios.post("/api/code", {
         messages: newMessages
       });
 
@@ -60,11 +60,11 @@ export default function ConversationPage() {
   return (
     <div>
       <Heading
-        title="Conversation"
-        description="Our Most Advanced Conversation Model"
-        icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
+        title="Code Generaion"
+        description="Generate Code using Descriptive Text"
+        icon={Code}
+        iconColor="text-green-700"
+        bgColor="bg-green-700/10"
       />
       <div className="px-4 lg:px-8">
         <div>
@@ -80,7 +80,7 @@ export default function ConversationPage() {
                     <FormControl className="m-0 p-0">
                       <Input
                         disabled={isLoading}
-                        placeholder="How do I calculate the radius of a circle?"
+                        placeholder="Simple toggle button using react hooks."
                         className="pl-2 border-0 outline-none focus-visible:ring-0 focus-visible: ring-transparent"
                         {...field}
                       />
@@ -104,7 +104,7 @@ export default function ConversationPage() {
             </div>
           )}
           {messages.length === 0 && !isLoading && (
-            <Empty label="No Conversation Started" />
+            <Empty label="No Code Generated Yet" />
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message) => (
