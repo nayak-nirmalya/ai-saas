@@ -13,6 +13,7 @@ import Heading from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Empty from "@/components/empty";
 
 import { formSchema } from "./constants";
 
@@ -93,6 +94,7 @@ export default function ConversationPage() {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
+          {messages.length === 0 && !isLoading && <Empty />}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message) => (
               <div key={message.content}>{message.content}</div>
