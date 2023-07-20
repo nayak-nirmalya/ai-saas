@@ -8,6 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import Heading from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 import { formSchema } from "./constants";
 
@@ -45,13 +47,27 @@ export default function ConversationPage() {
                 name="prompt"
                 render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0"></FormControl>
+                    <FormControl className="m-0 p-0">
+                      <Input
+                        disabled={isLoading}
+                        placeholder="How do I calculate the radius of a circle?"
+                        className="pl-2 border-0 outline-none focus-visible:ring-0 focus-visible: ring-transparent"
+                        {...field}
+                      />
+                    </FormControl>
                   </FormItem>
                 )}
               />
+              <Button
+                disabled={isLoading}
+                className="col-span-12 lg:col-span-2 w-full"
+              >
+                Generate
+              </Button>
             </form>
           </Form>
         </div>
+        <div className="space-y-4 mt-4">Messages Content</div>
       </div>
     </div>
   );
