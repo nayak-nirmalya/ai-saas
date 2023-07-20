@@ -13,6 +13,7 @@ export default function ConversationPage() {
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
+      <div className="px-4 lg:px-8"></div>
     </div>
   );
 }

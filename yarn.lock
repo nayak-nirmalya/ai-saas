@@ -156,6 +156,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@hookform/resolvers@npm:3.1.1"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 41da04f0995438364f129484011a84c0d4333ce1b4cb7815593f58ece51bbd88c87db9ea6b1f5d0b7ae3e47bfcdf1a3f8e2328c46800e884074048473b56d5b5
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.10":
   version: 0.11.10
   resolution: "@humanwhocodes/config-array@npm:0.11.10"
@@ -559,6 +568,26 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 446a453d799cc790dd2a1583ff8328da88271bff64530b5a17c102fa7fb35eece3cf8985359d416f65e330cd81aa7b8fe984ea125fc4f4eaf4b3801d698e49fe
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-label@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@radix-ui/react-label@npm:2.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 1.0.3
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: fe3bd8902bc523fb5125fa96167a13b8a60d007413787eae9573e4b00b0edff0487c4c0620ea5dc37e6da13833ebc4f8d7e00b6c846f2a5686e7f173672b8dde
   languageName: node
   linkType: hard
 
@@ -1041,7 +1070,9 @@ __metadata:
   resolution: "ai-saas@workspace:."
   dependencies:
     "@clerk/nextjs": ^4.22.0
+    "@hookform/resolvers": ^3.1.1
     "@radix-ui/react-dialog": ^1.0.4
+    "@radix-ui/react-label": ^2.0.2
     "@radix-ui/react-slot": ^1.0.2
     "@types/node": 20.4.2
     "@types/react": 18.2.15
@@ -1056,10 +1087,12 @@ __metadata:
     postcss: 8.4.26
     react: 18.2.0
     react-dom: 18.2.0
+    react-hook-form: ^7.45.2
     tailwind-merge: ^1.14.0
     tailwindcss: 3.3.3
     tailwindcss-animate: ^1.0.6
     typescript: 5.1.6
+    zod: ^3.21.4
   languageName: unknown
   linkType: soft
 
@@ -4134,6 +4167,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.45.2":
+  version: 7.45.2
+  resolution: "react-hook-form@npm:7.45.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 023ca091f2bb1f3117d8a694871874c4a344f02c795c6a08b8f78b09b78444451375fbe921d7db4ba7cd78909b1fa5e92d19efd2bfedc43124fdc44540ac036c
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -5257,7 +5299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.21.4":
+"zod@npm:3.21.4, zod@npm:^3.21.4":
   version: 3.21.4
   resolution: "zod@npm:3.21.4"
   checksum: f185ba87342ff16f7a06686767c2b2a7af41110c7edf7c1974095d8db7a73792696bcb4a00853de0d2edeb34a5b2ea6a55871bc864227dace682a0a28de33e1f
