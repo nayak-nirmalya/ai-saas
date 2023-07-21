@@ -43,7 +43,6 @@ export default function MusicPage() {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) proModal.onOpen();
-      console.error(error);
     } finally {
       router.refresh();
     }
