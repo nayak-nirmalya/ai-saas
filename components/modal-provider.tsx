@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import PorModal from "@/components/pro-modal";
+
 export default function ModalProvider() {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -11,5 +13,9 @@ export default function ModalProvider() {
 
   if (!isMounted) return null;
 
-  return <div>ModalProvider</div>;
+  return (
+    <>
+      <PorModal />
+    </>
+  );
 }
