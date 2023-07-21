@@ -19,10 +19,13 @@ import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 
-import { formSchema } from "./constants";
 import { cn } from "@/lib/utils";
+import { useProModal } from "@/hooks/use-pro-modal";
+
+import { formSchema } from "./constants";
 
 export default function CodePage() {
+  const proModal = useProModal();
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
@@ -51,8 +54,7 @@ export default function CodePage() {
 
       form.reset();
     } catch (error: any) {
-      // TODO: Open Pro Modal
-      console.error(error);
+      if (error?.response?.status === 403) proModal.onOpen();
     } finally {
       router.refresh();
     }
