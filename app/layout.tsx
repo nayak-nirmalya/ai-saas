@@ -2,16 +2,17 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import ModalProvider from "@/components/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Genius",
-  description: "AI SaaS Platform.",
+  description: "AI SaaS Platform."
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
@@ -21,8 +22,10 @@ export default function RootLayout({
         <head>
           <link rel="icon" href="/favicon.ico" />
         </head>
-
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <ModalProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
