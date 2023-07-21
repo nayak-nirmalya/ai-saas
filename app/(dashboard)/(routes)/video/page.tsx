@@ -96,7 +96,7 @@ export default function VideoPage() {
           {video && (
             <video
               controls
-              className="w-full aspect-video rounded-lg border bg-black mt-8"
+              className="w-full aspect-video rounded-lg border bg-black my-8"
             >
               <source src={video} />
             </video>
