@@ -77,12 +77,19 @@ export default function ImagePage() {
                     <FormControl className="m-0 p-0">
                       <Input
                         disabled={isLoading}
-                        placeholder="How do I calculate the radius of a circle?"
+                        placeholder="A picture of a horse in Swiss alps"
                         className="pl-2 border-0 outline-none focus-visible:ring-0 focus-visible: ring-transparent"
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
+                )}
+              />
+              <FormField
+                name="amount"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem className="col-span-12 lg:col-span-2"></FormItem>
                 )}
               />
               <Button
