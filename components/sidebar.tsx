@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import FreeCounter from "@/components/free-counter";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
@@ -63,7 +64,11 @@ const routes = [
   }
 ];
 
-export default function Sidebar() {
+export default function Sidebar({
+  apiLimitCount = 0
+}: {
+  apiLimitCount: number;
+}) {
   const pathname = usePathname();
 
   return (
@@ -97,6 +102,7 @@ export default function Sidebar() {
           ))}
         </div>
       </div>
+      <FreeCounter />
     </div>
   );
 }
