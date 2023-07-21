@@ -35,7 +35,7 @@ export default function FreeCounter({
               value={(apiLimitCount / MAX_FREE_COUNT) * 100}
             />
           </div>
-          <Button className="w-full">
+          <Button variant="premium" className="w-full">
             Upgrade <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </CardContent>
