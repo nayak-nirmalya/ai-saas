@@ -24,10 +24,12 @@ import {
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 
+import { useProModal } from "@/hooks/use-pro-modal";
+
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
-import { cn } from "@/lib/utils";
 
 export default function ImagePage() {
+  const proModal = useProModal();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -54,7 +56,7 @@ export default function ImagePage() {
 
       form.reset();
     } catch (error: any) {
-      // TODO: Open Pro Modal
+      if (error?.response?.status === 403) proModal.onOpen();
       console.error(error);
     } finally {
       router.refresh();
