@@ -102,7 +102,7 @@ export default function Sidebar({
           ))}
         </div>
       </div>
-      <FreeCounter />
+      <FreeCounter apiLimitCount={apiLimitCount} />
     </div>
   );
 }
