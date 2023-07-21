@@ -15,15 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
 
 import { formSchema } from "./constants";
-import { cn } from "@/lib/utils";
 
 export default function MusicPage() {
   const router = useRouter();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const [music, setMusic] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,18 +33,11 @@ export default function MusicPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionRequestMessage = {
-        role: "user",
-        content: values.prompt
-      };
-      const newMessages = [...messages, userMessage];
+      setMusic(undefined);
 
-      const response = await axios.post("/api/conversation", {
-        messages: newMessages
-      });
+      const response = await axios.post("/api/music", values);
 
-      setMessages((current) => [...current, userMessage, response.data]);
-
+      setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
       // TODO: Open Pro Modal
@@ -80,7 +70,7 @@ export default function MusicPage() {
                     <FormControl className="m-0 p-0">
                       <Input
                         disabled={isLoading}
-                        placeholder="How do I calculate the radius of a circle?"
+                        placeholder="Piano solo"
                         className="pl-2 border-0 outline-none focus-visible:ring-0 focus-visible: ring-transparent"
                         {...field}
                       />
@@ -103,25 +93,8 @@ export default function MusicPage() {
               <Loader />
             </div>
           )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label="No Conversation Started" />
-          )}
-          <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
-              <div
-                key={message.content}
-                className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted"
-                )}
-              >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">{message.content}</p>
-              </div>
-            ))}
-          </div>
+          {!music && !isLoading && <Empty label="No Music Generated." />}
+          <div>Music Will be Generated Here.</div>
         </div>
       </div>
     </div>
