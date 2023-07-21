@@ -1,18 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { ImageIcon } from "lucide-react";
+import { DownloadIcon, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import Heading from "@/components/heading";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
 import {
   Select,
@@ -21,6 +22,7 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select";
+import { Card, CardFooter } from "@/components/ui/card";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import { cn } from "@/lib/utils";
@@ -162,7 +164,25 @@ export default function ImagePage() {
           {images.length === 0 && !isLoading && (
             <Empty label="No Images Generated." />
           )}
-          <div>Images</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
+            {images.map((src) => (
+              <Card key={src} className="rounded-lg overflow-hidden">
+                <div className="relative aspect-square">
+                  <Image alt="Image" fill src={src} />
+                </div>
+                <CardFooter className="p-2">
+                  <Button
+                    variant="secondary"
+                    className="w-full"
+                    onClick={() => window.open(src)}
+                  >
+                    <DownloadIcon className="h-4 w-4 mr-2" />
+                    Download
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
