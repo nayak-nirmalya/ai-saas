@@ -7,7 +7,6 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { ChatCompletionRequestMessage } from "openai";
 
 import Heading from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -94,7 +93,11 @@ export default function MusicPage() {
             </div>
           )}
           {!music && !isLoading && <Empty label="No Music Generated." />}
-          <div>Music Will be Generated Here.</div>
+          {music && (
+            <audio controls className="w-full mt-8">
+              <source src={music} />
+            </audio>
+          )}
         </div>
       </div>
     </div>
