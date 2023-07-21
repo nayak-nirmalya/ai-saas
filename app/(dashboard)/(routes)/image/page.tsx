@@ -7,7 +7,6 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { ChatCompletionRequestMessage } from "openai";
 
 import Heading from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -23,12 +22,14 @@ import { cn } from "@/lib/utils";
 
 export default function ImagePage() {
   const router = useRouter();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt: ""
+      prompt: "",
+      amount: "1",
+      resolution: "512x512"
     }
   });
 
@@ -36,17 +37,13 @@ export default function ImagePage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionRequestMessage = {
-        role: "user",
-        content: values.prompt
-      };
-      const newMessages = [...messages, userMessage];
+      setImages([]);
 
-      const response = await axios.post("/api/conversation", {
-        messages: newMessages
-      });
+      const response = await axios.post("/api/image", values);
 
-      setMessages((current) => [...current, userMessage, response.data]);
+      const urls = response.data.map((image: { url: string }) => image.url);
+
+      setImages(urls);
 
       form.reset();
     } catch (error: any) {
@@ -99,29 +96,14 @@ export default function ImagePage() {
         </div>
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <div className="p-20">
               <Loader />
             </div>
           )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label="No Conversation Started" />
+          {images.length === 0 && !isLoading && (
+            <Empty label="No Images Generated." />
           )}
-          <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
-              <div
-                key={message.content}
-                className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted"
-                )}
-              >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">{message.content}</p>
-              </div>
-            ))}
-          </div>
+          <div>Images</div>
         </div>
       </div>
     </div>
