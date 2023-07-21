@@ -1397,6 +1397,7 @@ __metadata:
     react-dom: 18.2.0
     react-hook-form: ^7.45.2
     react-markdown: ^8.0.7
+    replicate: ^0.12.3
     tailwind-merge: ^1.14.0
     tailwindcss: 3.3.3
     tailwindcss-animate: ^1.0.6
@@ -5096,6 +5097,13 @@ __metadata:
     mdast-util-to-hast: ^12.1.0
     unified: ^10.0.0
   checksum: b9ac8acff3383b204dfdc2599d0bdf86e6ca7e837033209584af2e6aaa6a9013e519a379afa3201299798cab7298c8f4b388de118c312c67234c133318aec084
+  languageName: node
+  linkType: hard
+
+"replicate@npm:^0.12.3":
+  version: 0.12.3
+  resolution: "replicate@npm:0.12.3"
+  checksum: 3eb1522315dba74a7fa35661985ba25a0fe1e723a0250996afeabd6224f9e43b142e4ff8f6b1280260ec7879ae7c9b84bc4384dc25522696e1f74ea0d7ecefa5
   languageName: node
   linkType: hard
 
