@@ -29,7 +29,7 @@ export default function SubscriptionButton({
   return (
     <Button
       disabled={loading}
-      value={isPro ? "default" : "premium"}
+      variant={isPro ? "default" : "premium"}
       onClick={onClick}
     >
       {isPro ? "Manage Subscription" : "Upgrade"}
