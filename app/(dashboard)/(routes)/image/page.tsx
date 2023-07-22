@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 import Heading from "@/components/heading";
 import { Input } from "@/components/ui/input";
@@ -57,6 +58,7 @@ export default function ImagePage() {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) proModal.onOpen();
+      else toast.error("Something went wrong.");
     } finally {
       router.refresh();
     }
