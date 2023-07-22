@@ -1445,6 +1445,7 @@ __metadata:
     axios: ^1.4.0
     class-variance-authority: ^0.7.0
     clsx: ^2.0.0
+    crisp-sdk-web: ^1.0.19
     eslint: 8.45.0
     eslint-config-next: 13.4.10
     lucide-react: ^0.261.0
@@ -2048,6 +2049,13 @@ __metadata:
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
+  languageName: node
+  linkType: hard
+
+"crisp-sdk-web@npm:^1.0.19":
+  version: 1.0.19
+  resolution: "crisp-sdk-web@npm:1.0.19"
+  checksum: 4e3fcba41c8db6af50735205d11f2554548e2b7f96c3e4f016caa2ac1f0021a5934c6f86ae821fbb28298e206eb1df9c2981f4d4d83b6a774412f4af5bcbf222
   languageName: node
   linkType: hard
 
