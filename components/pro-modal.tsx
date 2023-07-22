@@ -11,6 +11,7 @@ import {
   Zap
 } from "lucide-react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 import {
   Dialog,
@@ -71,7 +72,7 @@ export default function PorModal() {
 
       window.location.href = response.data.url;
     } catch (error) {
-      console.error("STRIPE_CLIENT_ERROR", error);
+      toast.error("Something went wrong.");
     } finally {
       setLoading(false);
     }
