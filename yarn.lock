@@ -1464,6 +1464,7 @@ __metadata:
     tailwindcss: 3.3.3
     tailwindcss-animate: ^1.0.6
     typescript: 5.1.6
+    typewriter-effect: ^2.20.1
     zod: ^3.21.4
     zustand: ^4.3.9
   languageName: unknown
@@ -4788,6 +4789,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"performance-now@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "performance-now@npm:2.1.0"
+  checksum: 534e641aa8f7cba160f0afec0599b6cecefbb516a2e837b512be0adbe6c1da5550e89c78059c7fabc5c9ffdf6627edabe23eb7c518c4500067a898fa65c2b550
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
@@ -5004,6 +5012,15 @@ __metadata:
   version: 4.0.1
   resolution: "quick-lru@npm:4.0.1"
   checksum: bea46e1abfaa07023e047d3cf1716a06172c4947886c053ede5c50321893711577cb6119360f810cc3ffcd70c4d7db4069c3cee876b358ceff8596e062bd1154
+  languageName: node
+  linkType: hard
+
+"raf@npm:^3.4.1":
+  version: 3.4.1
+  resolution: "raf@npm:3.4.1"
+  dependencies:
+    performance-now: ^2.1.0
+  checksum: 50ba284e481c8185dbcf45fc4618ba3aec580bb50c9121385d5698cb6012fe516d2015b1df6dd407a7b7c58d44be8086108236affbce1861edd6b44637c8cd52
   languageName: node
   linkType: hard
 
@@ -6055,6 +6072,19 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 21e88b0a0c0226f9cb9fd25b9626fb05b4c0f3fddac521844a13e1f30beb8f14e90bd409a9ac43c812c5946d714d6e0dee12d5d02dfc1c562c5aacfa1f49b606
+  languageName: node
+  linkType: hard
+
+"typewriter-effect@npm:^2.20.1":
+  version: 2.20.1
+  resolution: "typewriter-effect@npm:2.20.1"
+  dependencies:
+    prop-types: ^15.8.1
+    raf: ^3.4.1
+  peerDependencies:
+    react: ^17.x || ^18.x
+    react-dom: ^17.x || ^18.x
+  checksum: fd60d8e8c184ef53fb2d0659357200e64f54289dcab7180ea5c05ed8ff703464fe6394ed4de36e24b5112b230ae4775ff74f2f09f9bfa8911e49901d66193312
   languageName: node
   linkType: hard
 

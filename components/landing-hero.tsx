@@ -6,7 +6,7 @@ import { useAuth } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 
-export const LandingHero = () => {
+export default function LandingHero() {
   const { isSignedIn } = useAuth();
 
   return (
@@ -19,6 +19,8 @@ export const LandingHero = () => {
               strings: [
                 "Chatbot.",
                 "Photo Generation.",
+                "Video Generation.",
+                "Music Generation.",
                 "Blog Writing.",
                 "Mail Writing."
               ],
@@ -46,4 +48,4 @@ export const LandingHero = () => {
       </div>
     </div>
   );
-};
+}
